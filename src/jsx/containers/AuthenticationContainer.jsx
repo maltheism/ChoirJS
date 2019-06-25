@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import RegistrationContainer from './authentication/RegistrationContainer';
 import axios from 'axios';
 
 const Header = styled.div`
