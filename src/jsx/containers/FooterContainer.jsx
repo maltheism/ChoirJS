@@ -46,6 +46,12 @@ class FooterContainer extends Component {
             cursor: 'pointer',
             alignItems: 'center'
         };
+        const cssRowLanguage = {
+            display: 'flex',
+            color: '#444682',
+            cursor: 'pointer',
+            alignItems: 'center'
+        };
         const cssLink = {
             color: 'inherit',
         };
@@ -69,6 +75,11 @@ class FooterContainer extends Component {
                         <div className={'col'} style={cssRow}>
                             <a style={cssLink} href={'https://choir.stanford.edu/contact/'}>
                                 Contact
+                            </a>
+                        </div>
+                        <div className={'col'} style={cssRowLanguage}>
+                            <a style={cssLink} href={'https://choir.stanford.edu/contact/'}>
+                                Français
                             </a>
                         </div>
                     </div>

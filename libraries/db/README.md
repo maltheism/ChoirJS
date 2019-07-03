@@ -16,9 +16,11 @@ ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFE
 
 Used for users storage.
 ```
-CREATE TABLE users (
-  uuid uuid DEFAULT uuid_generate_v4 (),
-  email VARCHAR not NULL,
-  password VARCHAR not NULL
+CREATE TABLE "public"."users" (
+    "uuid" uuid NOT NULL DEFAULT uuid_generate_v4(),
+    "email" varchar NOT NULL,
+    "password" varchar NOT NULL,
+    "language" varchar,
+    "permission" varchar
 );
 ```
