@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../contexts/AppContext';
 import PropTypes from 'prop-types';
+
+import { FormattedMessage } from 'react-intl';
+
+import {AppContext} from '../contexts/AppContext';
 
 const Footer = styled.div`
     bottom: 0;
@@ -91,23 +94,23 @@ class FooterContainer extends Component {
                      style={{display: 'flex', minHeight: 'inherit'}}
                 >
                     <div className={'row'} style={{minHeight: '100%'}}>
-                        <div className={'col'}
-                             style={{...cssRow, ...{minWidth: '100px'}}}>
+                        <div className={'col-sm-auto'}
+                             style={{...cssRow}}>
                             <a style={cssLink} href={'https://med.stanford.edu/researchit.html'}>
-                                About us
+                                <FormattedMessage id='app.footer.about' defaultMessage='About us' />
                             </a>
                         </div>
-                        <div className={'col'} style={cssRow}>
+                        <div className={'col-sm-auto'} style={cssRow}>
                             <a style={cssLink} href={'https://www.stanford.edu/site/terms.html'}>
-                                Terms
+                                <FormattedMessage id='app.footer.terms' defaultMessage='Terms' />
                             </a>
                         </div>
-                        <div className={'col'} style={cssRow}>
+                        <div className={'col-sm-auto'} style={cssRow}>
                             <a style={cssLink} href={'https://choir.stanford.edu/contact/'}>
-                                Contact
+                                <FormattedMessage id='app.footer.contact' defaultMessage='Contact' />
                             </a>
                         </div>
-                        <div className={'col'} style={cssRowLanguage}>
+                        <div className={'col-md-auto'} style={cssRowLanguage}>
                             <a style={cssLink} onClick={this.handleLanguage}>
                                 {setLanguage}
                             </a>
@@ -117,8 +120,8 @@ class FooterContainer extends Component {
                 <div style={{position: 'absolute', bottom: 15, right: 15, zIndex: 5}}>
                     <button onClick={this.handleLogout}
                         className={'btn btn-dark'}
-                            style={{height: '40px', width: '100px'}}>
-                        Logout
+                            style={{height: '40px', width: '120px'}}>
+                        <FormattedMessage id='app.footer.logout' defaultMessage='Logout' />
                     </button>
                 </div>
             </Footer>
