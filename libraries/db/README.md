@@ -1,4 +1,12 @@
-### Postgres table create setup:
+### PostgreSQL (Plugin) setup:
+
+Note: Needed for UUIDs of users table.
+
+```
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+```
+
+### Postgres (Table) setup:
 
 Note: Used for storage of cookie session.
 ```

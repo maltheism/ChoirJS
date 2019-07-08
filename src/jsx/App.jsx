@@ -29,7 +29,7 @@ import translations from '../translations/locales';
 // English and French (add more languages here)
 addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
-const localeProp = 'en';
+const localeProp = 'en'; // change to 'fr' for displaying français.
 
 function App() {
 
