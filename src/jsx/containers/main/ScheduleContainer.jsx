@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { FormattedMessage } from 'react-intl';
+
 import {AppContext} from '../../contexts/AppContext';
 
 const Schedule = styled.div`
@@ -33,7 +35,7 @@ class ScheduleContainer extends Component {
                     return (
                         context.navigateIndex === 0 ? (
                             <Schedule>
-                                Schedule panel.
+                                <FormattedMessage id='app.title' defaultMessage='Schedule panel.' />
                             </Schedule>
                         ) : null
                     )}

@@ -16,5 +16,3 @@ export default function Root() {
         </CookiesProvider>
     );
 }
-
-// import AppContainer from './jsx/containers/AppContainer.jsx';

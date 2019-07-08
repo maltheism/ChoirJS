@@ -36,7 +36,7 @@ class FooterContainer extends Component {
     handleLogout() {
         document.cookie = 'choirjs' + '=; Path=/; Expires=Tue, 18 Sep 1990 00:00:01 GMT;';
         document.cookie = 'session' + '=; Path=/; Expires=Tue, 18 Sep 1990 00:00:01 GMT;';
-        location.reload();
+        window.location.reload();
     }
 
     render() {

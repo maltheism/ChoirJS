@@ -11,7 +11,10 @@
     "development": "webpack --mode development",
     "babel-node": "babel-node --presets=@babel/preset-env",
     "start": "nodemon --delay 1500ms --exec babel-node ./bin/www.js",
-    "server": "nodemon --delay 2000ms --exec npm run babel-node ./bin/www.js"
+    "server": "nodemon --delay 2000ms --exec npm run babel-node ./bin/www.js",
+    "messages": "NODE_ENV=production babel src/jsx/* >/dev/null",
+    "locales": "node ./translationRunner.js",
+    "translate": "npm run messages; npm run locales"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -28,26 +31,30 @@
     "ip": "^1.1.5",
     "jquery": "^3.4.1",
     "morgan": "~1.9.1",
-    "pg-promise": "^8.7.2",
+    "pg-promise": "^8.7.3",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
-    "react-cookie": "^4.0.0",
+    "react-cookie": "^4.0.1",
     "react-dom": "^16.8.6",
+    "react-intl": "^2.9.0",
+    "react-intl.macro": "^0.3.6",
+    "react-scripts": "^3.0.1",
     "serve-favicon": "^2.5.0",
     "styled-components": "^4.3.2",
     "svg-spritemap-webpack-plugin": "^3.3.5",
     "uuid": "latest"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/node": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.1",
+    "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-react-intl": "^3.5.1",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.0.0",
     "html-loader": "^0.5.5",
@@ -55,11 +62,24 @@
     "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^0.7.0",
     "prop-types": "^15.7.2",
+    "react-intl-translations-manager": "^5.0.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.3",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5",
     "webpack-node-externals": "^1.7.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

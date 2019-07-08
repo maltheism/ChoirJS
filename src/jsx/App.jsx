@@ -20,7 +20,19 @@ import UserAdministrationContainer from './containers/main/UserAdministrationCon
 
 import AuthenticationContainer from './containers/AuthenticationContainer';
 
+// Multiple Language Support
+import { addLocaleData, IntlProvider } from 'react-intl';
+import enLocaleData from 'react-intl/locale-data/en';
+import frLocaleData from 'react-intl/locale-data/fr';
+import translations from '../translations/locales';
+
+// English and French (add more languages here)
+addLocaleData(enLocaleData);
+addLocaleData(frLocaleData);
+const localeProp = 'en';
+
 function App() {
+
     const [cookies, setCookie] = useCookies(['user']);
     const [navigateIndex, setNavigateIndex] = useState(0);
 
@@ -97,6 +109,16 @@ function App() {
 }
 
 const wrapper = document.getElementById('create-app-main');
-wrapper ? ReactDOM.render(<App />, wrapper) : false;
+ReactDOM.render(
+    <IntlProvider
+        locale={localeProp}
+        defaultLocale="en"
+        key={localeProp}
+        messages={translations[localeProp]}
+    >
+        <App />
+    </IntlProvider>,
+    wrapper
+);
 
 export default App;
