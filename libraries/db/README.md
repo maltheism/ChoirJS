@@ -1,6 +1,6 @@
 ### PostgreSQL (Plugin) setup:
 
-Note: Needed for UUIDs of users table.
+Note: Needed for UUIDs of table users.
 
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
@@ -8,7 +8,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 ### Postgres (Table) setup:
 
-Note: Used for storage of cookie session.
+Note: Used for storage of (cookie) session.
 ```
 CREATE TABLE "session" (
   "sid" varchar NOT NULL COLLATE "default",
