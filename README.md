@@ -6,9 +6,8 @@ Built with Node.js, Webpack.js, React.js and read the package.json for the depen
 
 ## Pre-installation:
 
-1) Install NodeJS
-2) Install PostgreSQL
-3) 
+1) Install [NodeJS](https://nodejs.org)
+2) Install [PostgreSQL](https://www.postgresql.org)
 
 ## Installation Instructions:
 
@@ -21,11 +20,14 @@ Built with Node.js, Webpack.js, React.js and read the package.json for the depen
 1) Create a database named "choir" with user "vagrant" and "vagrant" for the password.
 2) Execute the sql queries found in ./libraries/db/README.md
 
-## Deployment instructions:
+## Deployment:
 
 `npm run server`
 
 Visit `http://localhost:4000` in your browser.
 
-## Developer Notes:
-`npm run translate` - 
+### Developer Notes:
+
+`npm install -g nodemon`
+
+`npm run translate` - Builds multiple language support (json files).
