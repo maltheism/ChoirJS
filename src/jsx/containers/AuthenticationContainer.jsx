@@ -86,7 +86,7 @@ class AuthenticationContainer extends Component {
             .then(function (body) {
                 // POST succeeded
                 if (body.data && body.data.status) {
-                    window.location.reload();
+                    location.reload();
                 }
             })
             .catch(function (err) {
@@ -103,7 +103,7 @@ class AuthenticationContainer extends Component {
             .then(function (body) {
                 // POST succeeded
                 if (body.data && body.data.status) {
-                    window.location.reload();
+                    location.reload();
                 }
             })
             .catch(function (err) {

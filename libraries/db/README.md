@@ -1,9 +1,6 @@
-## pg-promise APIs:
-https://github.com/vitaly-t/pg-promise
-
 ### Postgres table create setup:
 
-Note: used for cookie session storage.
+Note: Used for storage of cookie session.
 ```
 CREATE TABLE "session" (
   "sid" varchar NOT NULL COLLATE "default",
@@ -14,7 +11,7 @@ WITH (OIDS=FALSE);
 ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 ```
 
-Used for users storage.
+Note: Used for storage users.
 ```
 CREATE TABLE "public"."users" (
     "uuid" uuid NOT NULL DEFAULT uuid_generate_v4(),
@@ -24,3 +21,6 @@ CREATE TABLE "public"."users" (
     "permission" varchar
 );
 ```
+
+### Developer Note: pg-promise APIs -
+https://github.com/vitaly-t/pg-promise
