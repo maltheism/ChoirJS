@@ -2,7 +2,7 @@ export default {
     app: {
         name: 'ChoirJS',
         version: '1.0.0',
-        info: 'Service'
+        info: 'Healthcare Service'
     },
     ip: {
         server: '10.142.0.2'
