@@ -29,7 +29,7 @@ class Navigation extends Component {
         this.state = {
             list: this.props.list,
             index: this.props.index,
-            selected: this.props.list.length > 0 ? this.props.list[0] : ''
+            selected: this.props.list.length > 0 ? this.props.list[this.props.index] : 0
         };
         this.handleChange = this.handleChange.bind(this);
     }

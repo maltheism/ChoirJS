@@ -21,7 +21,7 @@ import UserAdministrationContainer from './containers/main/UserAdministrationCon
 import AuthenticationContainer from './containers/AuthenticationContainer';
 
 // Multiple Language Support
-import { addLocaleData, IntlProvider } from 'react-intl';
+import {addLocaleData, IntlProvider} from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import frLocaleData from 'react-intl/locale-data/fr';
 import translations from '../translations/locales';
@@ -29,12 +29,12 @@ import translations from '../translations/locales';
 // English and French (add more languages here)
 addLocaleData(enLocaleData);
 addLocaleData(frLocaleData);
-const localeProp = 'en'; // change to 'fr' for displaying français.
 
 function App() {
 
-    const [cookies, setCookie] = useCookies(['user']);
-    const [navigateIndex, setNavigateIndex] = useState(0);
+    const [cookies, setCookie] = useCookies(['user']); // login cookie.
+    const [navigateIndex, setNavigateIndex] = useState(0); // navigation (main panel) index.
+    const [languageKey, setLanguageKey] = useState('en'); // 'fr' for displaying français.
 
     console.log('Cookie Data:');
     console.log(cookies);
@@ -80,26 +80,39 @@ function App() {
     );
 
     const footer = (
-        <FooterContainer/>
+        <FooterContainer
+            language={languageKey}
+        />
     );
 
     if (getSession(cookies.session)) {
         return (
-            <AppContext.Provider value={{
-                numbers: ['4', '2', '0'],
-                letters: ['a', 'l', 'i', 'z', 'e', 'e'],
-                navigateIndex: navigateIndex,
-                setNavigateIndex: (index) => {
-                    setNavigateIndex(index);
+            <IntlProvider
+                locale={languageKey}
+                defaultLocale='en'
+                key={languageKey}
+                messages={translations[languageKey]}
+            >
+                <AppContext.Provider value={{
+                    numbers: ['4', '2', '0'],
+                    letters: ['a', 'l', 'i', 'z', 'e', 'e'],
+                    navigateIndex: navigateIndex,
+                    setNavigateIndex: (index) => {
+                        setNavigateIndex(index);
+                    },
+                    languageKey: languageKey,
+                    setLanguageKey: (key) => {
+                        setLanguageKey(key);
+                    }
                 }
-            }
-            }>
-                <div>
-                    {header}
-                    {main}
-                    {footer}
-                </div>
-            </AppContext.Provider>
+                }>
+                    <div>
+                        {header}
+                        {main}
+                        {footer}
+                    </div>
+                </AppContext.Provider>
+            </IntlProvider>
         );
     } {
         return (
@@ -108,17 +121,9 @@ function App() {
     }
 }
 
-const wrapper = document.getElementById('create-app-main');
 ReactDOM.render(
-    <IntlProvider
-        locale={localeProp}
-        defaultLocale="en"
-        key={localeProp}
-        messages={translations[localeProp]}
-    >
-        <App />
-    </IntlProvider>,
-    wrapper
+    <App />,
+    document.getElementById('create-app-main')
 );
 
 export default App;

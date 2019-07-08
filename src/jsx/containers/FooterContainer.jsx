@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import {AppContext} from '../contexts/AppContext';
+import PropTypes from 'prop-types';
 
 const Footer = styled.div`
     bottom: 0;
@@ -27,16 +29,42 @@ const Footer = styled.div`
 
 class FooterContainer extends Component {
 
+    static contextType = AppContext;
+
+    static propTypes = {
+        language: PropTypes.string,
+        setLanguageKey: PropTypes.func,
+    };
+
     constructor(props) {
         super(props);
-
+        this.state = {
+            language: this.props.language,
+            languages: {
+                fr: 'Français',
+                en: 'English'
+            }
+        };
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleLanguage = this.handleLanguage.bind(this);
     }
 
     handleLogout() {
         document.cookie = 'choirjs' + '=; Path=/; Expires=Tue, 18 Sep 1990 00:00:01 GMT;';
         document.cookie = 'session' + '=; Path=/; Expires=Tue, 18 Sep 1990 00:00:01 GMT;';
         location.reload();
+    }
+
+    handleLanguage(event) {
+        if (event.target.innerText === 'Français') {
+            this.state.setLanguageKey('fr');
+        } else if (event.target.innerText === 'English') {
+            this.state.setLanguageKey('en');
+        }
+    }
+
+    componentDidMount() {
+        this.setState({setLanguageKey: this.context.setLanguageKey});
     }
 
     render() {
@@ -55,6 +83,8 @@ class FooterContainer extends Component {
         const cssLink = {
             color: 'inherit',
         };
+        console.log(this.state.language);
+        const setLanguage = this.state.language === 'en' ? 'Français' : 'English';
         return (
             <Footer>
                 <div className={'container-fluid'}
@@ -78,8 +108,8 @@ class FooterContainer extends Component {
                             </a>
                         </div>
                         <div className={'col'} style={cssRowLanguage}>
-                            <a style={cssLink} href={'https://choir.stanford.edu/contact/'}>
-                                Français
+                            <a style={cssLink} onClick={this.handleLanguage}>
+                                {setLanguage}
                             </a>
                         </div>
                     </div>
