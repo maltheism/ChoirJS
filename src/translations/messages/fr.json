@@ -1,0 +1,18 @@
+{
+  "app.footer.about": "Qui sommes-nous",
+  "app.footer.contact": "Contact",
+  "app.footer.logout": "Déconnexion",
+  "app.footer.terms": "Conditions d'utilisation",
+  "app.header.login-message": "Connecté en tant que/qu':",
+  "app.header.logo.message-bottom": "Registre d'information",
+  "app.header.logo.message-middle": "Résultats de santé",
+  "app.header.logo.message-top": "Collaborative",
+  "app.navigation.import/export": "Import/Export",
+  "app.navigation.patient": "Patient",
+  "app.navigation.register-patient": "Enregistrer un patient",
+  "app.navigation.reports": "Rapports",
+  "app.navigation.schedule": "Programme",
+  "app.navigation.site-administrator": "Administrateur du site",
+  "app.navigation.user-administration": "Administration des utilisateurs",
+  "app.title": "Schedule french panel."
+}
