@@ -16,7 +16,6 @@ const Link = styled.div`
     }
 `;
 
-
 class Navigation extends Component {
 
     static contextType = AppContext;
@@ -54,7 +53,6 @@ class Navigation extends Component {
     }
 
     render() {
-
         const messages = defineMessages({
             'schedule': {
                 id: 'app.navigation.schedule',
