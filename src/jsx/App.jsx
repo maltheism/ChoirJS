@@ -21,7 +21,7 @@ import UserAdministrationContainer from './containers/main/UserAdministrationCon
 import AuthenticationContainer from './containers/AuthenticationContainer';
 
 // Multiple Language Support
-import {addLocaleData, IntlProvider} from 'react-intl';
+import {addLocaleData, defineMessages, IntlProvider} from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import frLocaleData from 'react-intl/locale-data/fr';
 import translations from '../translations/locales';
@@ -69,6 +69,36 @@ function App() {
                     'User Administration',
                 ]}
                 index={navigateIndex}
+                messageDescriptors={defineMessages({
+                    'schedule': {
+                        id: 'app.navigation.schedule',
+                        defaultMessage: 'Schedule'
+                    },
+                    'patient': {
+                        id: 'app.navigation.patient',
+                        defaultMessage: 'Patient'
+                    },
+                    'reports': {
+                        id: 'app.navigation.reports',
+                        defaultMessage: 'Reports'
+                    },
+                    'site-administrator': {
+                        id: 'app.navigation.site-administrator',
+                        defaultMessage: 'Site Administrator'
+                    },
+                    'import/export': {
+                        id: 'app.navigation.import/export',
+                        defaultMessage: 'Import/Export'
+                    },
+                    'register-patient': {
+                        id: 'app.navigation.register-patient',
+                        defaultMessage: 'Register Patient'
+                    },
+                    'user-administration': {
+                        id: 'app.navigation.user-administration',
+                        defaultMessage: 'User Administration'
+                    },
+                })}
             />
             <ScheduleContainer/>
             <PatientContainer/>

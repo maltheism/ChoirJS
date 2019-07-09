@@ -86,7 +86,6 @@ class FooterContainer extends Component {
         const cssLink = {
             color: 'inherit',
         };
-        console.log(this.state.language);
         const setLanguage = this.state.language === 'en' ? 'Français' : 'English';
         return (
             <Footer>

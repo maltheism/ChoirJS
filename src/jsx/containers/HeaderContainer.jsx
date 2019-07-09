@@ -42,13 +42,9 @@ class HeaderContainer extends Component {
             session: this.props.session,
             language: this.props.language,
         };
-        console.log(this.state);
     }
 
     render() {
-
-        console.log('this.props.language:');
-        console.log(this.props.language);
 
         const logo = (
             <div className={'col'}>

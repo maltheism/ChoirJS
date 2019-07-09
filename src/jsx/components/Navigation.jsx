@@ -24,6 +24,7 @@ class Navigation extends Component {
         list: PropTypes.array,
         index: PropTypes.number,
         setNavigateIndex: PropTypes.func,
+        messageDescriptors: PropTypes.object
     };
 
     constructor(props) {
@@ -31,6 +32,7 @@ class Navigation extends Component {
         this.state = {
             list: this.props.list,
             index: this.props.index,
+            messageDescriptors: this.props.messageDescriptors,
             selected: this.props.list.length > 0 ? this.props.list[this.props.index] : 0
         };
         this.handleChange = this.handleChange.bind(this);
@@ -53,36 +55,7 @@ class Navigation extends Component {
     }
 
     render() {
-        const messages = defineMessages({
-            'schedule': {
-                id: 'app.navigation.schedule',
-                defaultMessage: 'Schedule'
-            },
-            'patient': {
-                id: 'app.navigation.patient',
-                defaultMessage: 'Patient'
-            },
-            'reports': {
-                id: 'app.navigation.reports',
-                defaultMessage: 'Reports'
-            },
-            'site-administrator': {
-                id: 'app.navigation.site-administrator',
-                defaultMessage: 'Site Administrator'
-            },
-            'import/export': {
-                id: 'app.navigation.import/export',
-                defaultMessage: 'Import/Export'
-            },
-            'register-patient': {
-                id: 'app.navigation.register-patient',
-                defaultMessage: 'Register Patient'
-            },
-            'user-administration': {
-                id: 'app.navigation.user-administration',
-                defaultMessage: 'User Administration'
-            },
-        });
+        const messages = this.state.messageDescriptors;
 
         let list = [];
         for (const item in this.state.list) {
