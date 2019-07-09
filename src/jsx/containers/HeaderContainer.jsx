@@ -58,13 +58,13 @@ class HeaderContainer extends Component {
                 </svg>
                 <div style={{display: 'block', float: 'right', width: 'auto'}}>
                     <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
-                        <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative'/>
+                        <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative' />
                     </a>
                     <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                        <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes'/>
+                        <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes' />
                     </a>
                     <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                        <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry'/>
+                        <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry' />
                     </a>
                 </div>
                 </div>

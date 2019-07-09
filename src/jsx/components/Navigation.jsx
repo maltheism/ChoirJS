@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import {defineMessages, FormattedMessage} from 'react-intl';
+
 import {AppContext} from '../contexts/AppContext';
 
 const Link = styled.div`
@@ -34,14 +37,14 @@ class Navigation extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
-        if (this.state.index !== this.state.list.indexOf(event.target.innerText)) {
+    handleChange(text) {
+        if (this.state.index !== this.state.list.indexOf(text)) {
             this.state.setNavigateIndex(
-                this.state.list.indexOf(event.target.innerText)
+                this.state.list.indexOf(text)
             );
             this.setState({
-                index: this.state.list.indexOf(event.target.innerText),
-                selected: event.target.innerText
+                index: this.state.list.indexOf(text),
+                selected: text
             });
         }
     }
@@ -52,16 +55,51 @@ class Navigation extends Component {
 
     render() {
 
+        const messages = defineMessages({
+            'schedule': {
+                id: 'app.navigation.schedule',
+                defaultMessage: 'Schedule'
+            },
+            'patient': {
+                id: 'app.navigation.patient',
+                defaultMessage: 'Patient'
+            },
+            'reports': {
+                id: 'app.navigation.reports',
+                defaultMessage: 'Reports'
+            },
+            'site-administrator': {
+                id: 'app.navigation.site-administrator',
+                defaultMessage: 'Site Administrator'
+            },
+            'import/export': {
+                id: 'app.navigation.import/export',
+                defaultMessage: 'Import/Export'
+            },
+            'register-patient': {
+                id: 'app.navigation.register-patient',
+                defaultMessage: 'Register Patient'
+            },
+            'user-administration': {
+                id: 'app.navigation.user-administration',
+                defaultMessage: 'User Administration'
+            },
+        });
+
         let list = [];
         for (const item in this.state.list) {
             if (this.state.list.hasOwnProperty(item)) {
-                const active = this.state.index === parseInt(item) ? ' active btn-danger nounderline cursordefault' : '';
+                const active = this.state.index === parseInt(item) ?
+                    ' active btn-danger nounderline cursordefault' : '';
                 list.push(
                     <Link key={'navigation_' + item}
-                          onClick={this.handleChange}
+                          onClick={() => this.handleChange(this.state.list[item])}
                           className={'flex-sm-fill text-sm-center nav-link' + active}
                     >
-                        {this.state.list[item]}
+                        <FormattedMessage
+                            key={(this.state.list[item]).replace(/\s+/g, '-').toLowerCase()}
+                            {...messages[(this.state.list[item]).replace(/\s+/g, '-').toLowerCase()]}
+                        />
                     </Link>
                 )
             }
