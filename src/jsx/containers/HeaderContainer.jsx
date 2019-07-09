@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Dropdown from '../components/Dropdown';
-
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+import { FormattedMessage } from 'react-intl';
+
+import Dropdown from '../components/Dropdown';
 
 const Header = styled.div`
     top: 0;
@@ -31,23 +33,41 @@ const Header = styled.div`
 class HeaderContainer extends Component {
     static propTypes = {
         session: PropTypes.object,
+        language: PropTypes.string
     };
 
     constructor(props) {
         super(props);
         this.state = {
-            session: this.props.session
+            session: this.props.session,
+            language: this.props.language,
         };
         console.log(this.state);
     }
 
     render() {
 
+        console.log('this.props.language:');
+        console.log(this.props.language);
+
         const logo = (
             <div className={'col'}>
-                <svg height={'69'}>
-                    <use xlinkHref='dist/spritemap.svg#sprite-logo'/>
+                <div className={'row'} style={{minWidth: '307px', maxWidth: '334px'}}>
+                <svg height={'69px'} width={'204px'} style={{display: 'block', float: 'left', left: 0}}>
+                    <use xlinkHref={'dist/spritemap.svg#sprite-logo'}/>
                 </svg>
+                <div style={{display: 'block', float: 'right', width: 'auto'}}>
+                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
+                        <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative'/>
+                    </a>
+                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                        <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes'/>
+                    </a>
+                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                        <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry'/>
+                    </a>
+                </div>
+                </div>
             </div>
         );
 
@@ -76,7 +96,9 @@ class HeaderContainer extends Component {
 
         const loggedInMessage = this.state.session ? (
             <div style={{right: 40, position: 'absolute', fontSize: '10pt'}}>
-                <i>Logged in as:</i> <b>{this.state.session.user.email}</b>
+                <i>
+                    <FormattedMessage id='app.header.login-message' defaultMessage='Logged in as:' />
+                </i> <b>{this.state.session.user.email}</b>
             </div>
         ) : null;
 

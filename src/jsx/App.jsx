@@ -51,6 +51,7 @@ function App() {
     const header = (
         <HeaderContainer
             session={cookies.session ?? null}
+            language={languageKey}
             onChange={onChange}
         />
     );
