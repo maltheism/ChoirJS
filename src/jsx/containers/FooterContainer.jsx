@@ -93,6 +93,11 @@ class FooterContainer extends Component {
                      style={{display: 'flex', minHeight: 'inherit'}}
                 >
                     <div className={'row'} style={{minHeight: '100%'}}>
+                        <div className={'col-md-auto'} style={cssRowLanguage}>
+                            <a style={cssLink} onClick={this.handleLanguage}>
+                                {setLanguage}
+                            </a>
+                        </div>
                         <div className={'col-sm-auto'}
                              style={{...cssRow}}>
                             <a style={cssLink} href={'https://med.stanford.edu/researchit.html'}>
@@ -107,11 +112,6 @@ class FooterContainer extends Component {
                         <div className={'col-sm-auto'} style={cssRow}>
                             <a style={cssLink} href={'https://choir.stanford.edu/contact/'}>
                                 <FormattedMessage id='app.footer.contact' defaultMessage='Contact' />
-                            </a>
-                        </div>
-                        <div className={'col-md-auto'} style={cssRowLanguage}>
-                            <a style={cssLink} onClick={this.handleLanguage}>
-                                {setLanguage}
                             </a>
                         </div>
                     </div>

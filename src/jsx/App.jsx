@@ -4,20 +4,10 @@ import ReactDOM from 'react-dom';
 import {useCookies} from 'react-cookie';
 import {AppContext} from './contexts/AppContext';
 
-import MainContainer from './containers/MainContainer';
+// Main Containers
 import HeaderContainer from './containers/HeaderContainer';
+import BodyContainer from './containers/BodyContainer';
 import FooterContainer from './containers/FooterContainer';
-
-import Navigation from './components/Navigation';
-
-import ScheduleContainer from './containers/main/ScheduleContainer';
-import PatientContainer from './containers/main/PatientContainer';
-import ReportsContainer from './containers/main/ReportsContainer';
-import SiteAdministratorContainer from './containers/main/SiteAdministratorContainer';
-import ImportExportContainer from './containers/main/ImportExportContainer';
-import RegisterPatientContainer from './containers/main/RegisterPatientContainer';
-import UserAdministrationContainer from './containers/main/UserAdministrationContainer';
-
 import AuthenticationContainer from './containers/AuthenticationContainer';
 
 // Multiple Language Support
@@ -25,6 +15,7 @@ import {addLocaleData, defineMessages, IntlProvider} from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import frLocaleData from 'react-intl/locale-data/fr';
 import translations from '../translations/locales';
+const defaultLanguage = 'en';
 
 // English and French (add more languages here)
 addLocaleData(enLocaleData);
@@ -34,7 +25,7 @@ function App() {
 
     const [cookies, setCookie] = useCookies(['user']); // login cookie.
     const [navigateIndex, setNavigateIndex] = useState(0); // navigation (main panel) index.
-    const [languageKey, setLanguageKey] = useState('en'); // 'fr' for displaying français.
+    const [languageKey, setLanguageKey] = useState(defaultLanguage); // 'fr' for displaying français.
 
     console.log('Cookie Data:');
     console.log(cookies);
@@ -52,62 +43,13 @@ function App() {
         <HeaderContainer
             session={cookies.session ?? null}
             language={languageKey}
-            onChange={onChange}
         />
     );
 
-    const main = (
-        <MainContainer>
-            <Navigation
-                list={[
-                    'Schedule',
-                    'Patient',
-                    'Reports',
-                    'Site Administrator',
-                    'Import/Export',
-                    'Register Patient',
-                    'User Administration',
-                ]}
-                index={navigateIndex}
-                messageDescriptors={defineMessages({
-                    'schedule': {
-                        id: 'app.navigation.schedule',
-                        defaultMessage: 'Schedule'
-                    },
-                    'patient': {
-                        id: 'app.navigation.patient',
-                        defaultMessage: 'Patient'
-                    },
-                    'reports': {
-                        id: 'app.navigation.reports',
-                        defaultMessage: 'Reports'
-                    },
-                    'site-administrator': {
-                        id: 'app.navigation.site-administrator',
-                        defaultMessage: 'Site Administrator'
-                    },
-                    'import/export': {
-                        id: 'app.navigation.import/export',
-                        defaultMessage: 'Import/Export'
-                    },
-                    'register-patient': {
-                        id: 'app.navigation.register-patient',
-                        defaultMessage: 'Register Patient'
-                    },
-                    'user-administration': {
-                        id: 'app.navigation.user-administration',
-                        defaultMessage: 'User Administration'
-                    },
-                })}
-            />
-            <ScheduleContainer/>
-            <PatientContainer/>
-            <ReportsContainer/>
-            <SiteAdministratorContainer/>
-            <ImportExportContainer/>
-            <RegisterPatientContainer/>
-            <UserAdministrationContainer/>
-        </MainContainer>
+    const body = (
+        <BodyContainer
+            navigateIndex={navigateIndex}
+        />
     );
 
     const footer = (
@@ -120,7 +62,7 @@ function App() {
         return (
             <IntlProvider
                 locale={languageKey}
-                defaultLocale='en'
+                defaultLocale={defaultLanguage}
                 key={languageKey}
                 messages={translations[languageKey]}
             >
@@ -139,7 +81,7 @@ function App() {
                 }>
                     <div>
                         {header}
-                        {main}
+                        {body}
                         {footer}
                     </div>
                 </AppContext.Provider>

@@ -48,21 +48,21 @@ class HeaderContainer extends Component {
 
         const logo = (
             <div className={'col'}>
-                <div className={'row'} style={{minWidth: '307px', maxWidth: '334px'}}>
-                <svg height={'69px'} width={'204px'} style={{display: 'block', float: 'left', left: 0}}>
-                    <use xlinkHref={'dist/spritemap.svg#sprite-logo'}/>
-                </svg>
-                <div style={{display: 'block', float: 'right', width: 'auto'}}>
-                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
-                        <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative' />
-                    </a>
-                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                        <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes' />
-                    </a>
-                    <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                        <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry' />
-                    </a>
-                </div>
+                <div className={'row'} style={{minWidth: '308px', maxWidth: '335px'}}>
+                    <svg height={'69px'} width={'204px'} style={{display: 'block', float: 'left', left: 0}}>
+                        <use xlinkHref={'dist/spritemap.svg#sprite-logo'}/>
+                    </svg>
+                    <div style={{display: 'block', float: 'right', width: 'auto'}}>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
+                            <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative' />
+                        </a>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                            <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes' />
+                        </a>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                            <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry' />
+                        </a>
+                    </div>
                 </div>
             </div>
         );
