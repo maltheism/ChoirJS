@@ -8,6 +8,8 @@
   "app.authentication.label.confirm-password": "Confirmez le mot de passe",
   "app.authentication.label.email-address": "Adresse électronique",
   "app.authentication.label.secret-password": "Mot de passe secret",
+  "app.authentication.message.registration": "Tapez vos identifiants d'inscription.",
+  "app.authentication.message.sign-in": "Tapez vos informations d'identification de connexion.",
   "app.footer.about": "Qui sommes-nous",
   "app.footer.contact": "Contact",
   "app.footer.logout": "Déconnexion",

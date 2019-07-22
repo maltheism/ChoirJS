@@ -65,6 +65,7 @@ class AuthenticationContainer extends Component {
             mode: 'login',
             language: this.props.language,
         };
+        console.log(this.state.mode);
         this.handleRegistrationChange = this.handleRegistrationChange.bind(this);
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -130,13 +131,22 @@ class AuthenticationContainer extends Component {
                     </svg>
                     <div style={{display: 'block', float: 'right', width: 'auto'}}>
                         <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
-                            <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative' />
+                            <FormattedMessage
+                                id='app.header.logo.message-top'
+                                defaultMessage='Collaborative'
+                            />
                         </a>
                         <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                            <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes' />
+                            <FormattedMessage
+                                id='app.header.logo.message-middle'
+                                defaultMessage='Health Outcomes'
+                            />
                         </a>
                         <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
-                            <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry' />
+                            <FormattedMessage
+                                id='app.header.logo.message-bottom'
+                                defaultMessage='Information Registry'
+                            />
                         </a>
                     </div>
                 </div>
@@ -149,7 +159,10 @@ class AuthenticationContainer extends Component {
                             className={'btn btn-outline-success'}
                             style={{minHeight: '38px', minWidth: '215px'}}
                             type={'button'}>
-                        <FormattedMessage id='app.authentication.button.sign-in' defaultMessage='Sign in' />
+                        <FormattedMessage
+                            id='app.authentication.button.sign-in'
+                            defaultMessage='Sign in'
+                        />
                     </button>
                 </div>
             </div>
@@ -161,14 +174,18 @@ class AuthenticationContainer extends Component {
                             className={'btn btn-outline-danger'}
                             style={{minHeight: '38px', minWidth: '215px'}}
                             type={'button'}>
-                        <FormattedMessage id='app.authentication.button.registration' defaultMessage='Registration' />
+                        <FormattedMessage
+                            id='app.authentication.button.registration'
+                            defaultMessage='Registration'
+                        />
                     </button>
                 </div>
             </div>
         );
 
         const cssTextHeader = {
-            fontSize: '16pt'
+            fontSize: '16pt',
+            fontWeight: 700
         };
 
         const authentication = this.state.mode === 'registration' ? (
@@ -178,17 +195,23 @@ class AuthenticationContainer extends Component {
                           onSubmit={this.handleRegistrationSubmit}
                     >
                         <div className='container text-center'>
-                            <a style={cssTextHeader}>Type your </a>
-                            <a style={{...cssTextHeader, ...{color: '#CC444A'}}}>"</a>
-                            <a style={{...cssTextHeader,...{color: '#CC444A', fontWeight: '700'}}}>Registration</a>
-                            <a style={{...cssTextHeader, ...{color: '#CC444A'}}}>"</a>
-                            <a style={cssTextHeader}> credentials.</a>
+                            <a style={{...cssTextHeader, ...{color: '#CC444A'}}}>
+                                <FormattedMessage
+                                    id='app.authentication.message.registration'
+                                    defaultMessage='Type your Registration credentials.'
+                                />
+                            </a>
                         </div>
                         <div className='form-group'>
                             <label>
-                                <FormattedMessage id='app.authentication.label.email-address' defaultMessage='Email address' />
+                                <FormattedMessage
+                                    id='app.authentication.label.email-address'
+                                    defaultMessage='Email address'
+                                />
                             </label>
-                            <FormattedMessage id='app.authentication.input.placeholder.email-address' defaultMessage='Your email'>
+                            <FormattedMessage
+                                id='app.authentication.input.placeholder.email-address'
+                                defaultMessage='Your email' >
                                 { (placeholder) =>
                                     <input type={'email'}
                                            name={'email'}
@@ -204,9 +227,14 @@ class AuthenticationContainer extends Component {
                         </div>
                         <div className='form-group'>
                             <label>
-                                <FormattedMessage id='app.authentication.label.secret-password' defaultMessage='Secret password' />
+                                <FormattedMessage
+                                    id='app.authentication.label.secret-password'
+                                    defaultMessage='Secret password'
+                                />
                             </label>
-                            <FormattedMessage id='app.authentication.input.placeholder.password' defaultMessage='Your password'>
+                            <FormattedMessage
+                                id='app.authentication.input.placeholder.password'
+                                defaultMessage='Your password' >
                                 { (placeholder) =>
                                     <input type={'password'}
                                            name={'password'}
@@ -222,9 +250,14 @@ class AuthenticationContainer extends Component {
                         </div>
                         <div className='form-group'>
                             <label>
-                                <FormattedMessage id='app.authentication.label.confirm-password' defaultMessage='Confirm password' />
+                                <FormattedMessage
+                                    id='app.authentication.label.confirm-password'
+                                    defaultMessage='Confirm password'
+                                />
                             </label>
-                            <FormattedMessage id='app.authentication.input.placeholder.password-verify' defaultMessage='Your password'>
+                            <FormattedMessage
+                                id='app.authentication.input.placeholder.password-verify'
+                                defaultMessage='Your password' >
                                 { (placeholder) =>
                                     <input type={'password'}
                                            name={'passwordVerify'}
@@ -243,7 +276,10 @@ class AuthenticationContainer extends Component {
                                     style={{minHeight: '45px', minWidth: '230px'}}
                                     type={'submit'}
                             >
-                                <FormattedMessage id='app.authentication.button.submit' defaultMessage='Submit' />
+                                <FormattedMessage
+                                    id='app.authentication.button.submit'
+                                    defaultMessage='Submit'
+                                />
                             </button>
                         </div>
                     </form>
@@ -256,17 +292,23 @@ class AuthenticationContainer extends Component {
                           onSubmit={this.handleLoginSubmit}
                     >
                         <div className='container text-center'>
-                            <a style={cssTextHeader}>Type your </a>
-                            <a style={{...cssTextHeader, ...{color: '#51A351'}}}>"</a>
-                            <a style={{...cssTextHeader,...{color: '#51A351', fontWeight: '700'}}}>Sign-in</a>
-                            <a style={{...cssTextHeader, ...{color: '#51A351'}}}>"</a>
-                            <a style={cssTextHeader}> credentials.</a>
+                            <a style={{...cssTextHeader, ...{color: '#51A351'}}}>
+                                <FormattedMessage
+                                    id='app.authentication.message.sign-in'
+                                    defaultMessage='Type your Sign-in credentials.'
+                                />
+                            </a>
                         </div>
                         <div className='form-group'>
                             <label>
-                                <FormattedMessage id='app.authentication.label.email-address' defaultMessage='Email address' />
+                                <FormattedMessage
+                                    id='app.authentication.label.email-address'
+                                    defaultMessage='Email address'
+                                />
                             </label>
-                            <FormattedMessage id='app.authentication.input.placeholder.email-address' defaultMessage='Your email'>
+                            <FormattedMessage
+                                id='app.authentication.input.placeholder.email-address'
+                                defaultMessage='Your email' >
                                 { (placeholder) =>
                                     <input type={'email'}
                                            name={'email'}
@@ -282,9 +324,14 @@ class AuthenticationContainer extends Component {
                         </div>
                         <div className='form-group'>
                             <label>
-                                <FormattedMessage id='app.authentication.label.secret-password' defaultMessage='Secret password' />
+                                <FormattedMessage
+                                    id='app.authentication.label.secret-password'
+                                    defaultMessage='Secret password'
+                                />
                             </label>
-                            <FormattedMessage id='app.authentication.input.placeholder.password' defaultMessage='Your password'>
+                            <FormattedMessage
+                                id='app.authentication.input.placeholder.password'
+                                defaultMessage='Your password' >
                                 { (placeholder) =>
                                     <input type={'password'}
                                            name={'password'}
@@ -303,7 +350,10 @@ class AuthenticationContainer extends Component {
                                     style={{minHeight: '45px', minWidth: '230px'}}
                                     type={'submit'}
                             >
-                                <FormattedMessage id='app.authentication.button.submit' defaultMessage='Submit' />
+                                <FormattedMessage
+                                    id='app.authentication.button.submit'
+                                    defaultMessage='Submit'
+                                />
                             </button>
                         </div>
                     </form>
