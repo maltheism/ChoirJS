@@ -76,11 +76,9 @@ function App() {
                     }
                 }
                 }>
-                    <div>
-                        {header}
-                        {body}
-                        {footer}
-                    </div>
+                    {header}
+                    {body}
+                    {footer}
                 </AppContext.Provider>
             </IntlProvider>
         );
