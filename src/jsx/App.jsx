@@ -11,7 +11,7 @@ import FooterContainer from './containers/FooterContainer';
 import AuthenticationContainer from './containers/AuthenticationContainer';
 
 // Multiple Language Support
-import {addLocaleData, defineMessages, IntlProvider} from 'react-intl';
+import {addLocaleData, IntlProvider} from 'react-intl';
 import enLocaleData from 'react-intl/locale-data/en';
 import frLocaleData from 'react-intl/locale-data/fr';
 import translations from '../translations/locales';
