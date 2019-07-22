@@ -41,7 +41,14 @@ class HeaderContainer extends Component {
         this.state = {
             session: this.props.session,
             language: this.props.language,
+            search: ''
         };
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+    }
+
+    handleSearchChange(event) {
+        this.setState({search: event.target.value});
+        // todo.. build search functionality.
     }
 
     render() {
@@ -85,7 +92,19 @@ class HeaderContainer extends Component {
 
         const search = this.state.session ? (
             <div className={'col-xl-3 col-lg-4 col-sm-6 col-xs-6'} style={{display: 'flex', alignItems: 'center'}}>
-                <input className={'form-control'} placeholder={'email, mm, or name'} style={{minWidth: '253px'}}/>
+                <FormattedMessage
+                    id='app.header.input.placeholder.search'
+                    defaultMessage='email, mm, or name' >
+                    { (placeholder) =>
+                        <input className={'form-control'}
+                               placeholder={placeholder}
+                               onChange={this.handleSearchChange}
+                               value={this.state.search}
+                               style={{minWidth: '253px'}}
+
+                        />
+                    }
+                </FormattedMessage>
                 <button className={'btn btn-light'} type={'button'}>Go</button>
             </div>
         ) : null;
