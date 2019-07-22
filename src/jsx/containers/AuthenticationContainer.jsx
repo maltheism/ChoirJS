@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import { FormattedMessage, intlShape } from 'react-intl';
+import PropTypes from 'prop-types';
+
+import FooterContainer from './authentication/FooterContainer';
+
 const Header = styled.div`
     top: 0;
     z-index: 4;
@@ -39,6 +44,10 @@ const Authentication = styled.div`
 
 class AuthenticationContainer extends Component {
 
+    static propTypes = {
+        language: PropTypes.string
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -53,7 +62,8 @@ class AuthenticationContainer extends Component {
                     passwordVerify: ''
                 }
             },
-            mode: 'login'
+            mode: 'login',
+            language: this.props.language,
         };
         this.handleRegistrationChange = this.handleRegistrationChange.bind(this);
         this.handleRegistrationSubmit = this.handleRegistrationSubmit.bind(this);
@@ -86,7 +96,7 @@ class AuthenticationContainer extends Component {
             .then(function (body) {
                 // POST succeeded
                 if (body.data && body.data.status) {
-                    location.reload();
+                    window.location.reload();
                 }
             })
             .catch(function (err) {
@@ -103,7 +113,7 @@ class AuthenticationContainer extends Component {
             .then(function (body) {
                 // POST succeeded
                 if (body.data && body.data.status) {
-                    location.reload();
+                    window.location.reload();
                 }
             })
             .catch(function (err) {
@@ -113,10 +123,23 @@ class AuthenticationContainer extends Component {
 
     render() {
         const logo = (
-            <div className={'col-xs-6'}>
-                <svg height={'69'}>
-                    <use xlinkHref='dist/spritemap.svg#sprite-logo'/>
-                </svg>
+            <div className={'col'}>
+                <div className={'row'} style={{minWidth: '308px', maxWidth: '335px'}}>
+                    <svg height={'69px'} width={'204px'} style={{display: 'block', float: 'left', left: 0}}>
+                        <use xlinkHref={'dist/spritemap.svg#sprite-logo'}/>
+                    </svg>
+                    <div style={{display: 'block', float: 'right', width: 'auto'}}>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52', paddingTop: '11px'}}>
+                            <FormattedMessage id='app.header.logo.message-top' defaultMessage='Collaborative' />
+                        </a>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                            <FormattedMessage id='app.header.logo.message-middle' defaultMessage='Health Outcomes' />
+                        </a>
+                        <a style={{display: 'block', fontSize: '8pt', color: '#4d4e52'}}>
+                            <FormattedMessage id='app.header.logo.message-bottom' defaultMessage='Information Registry' />
+                        </a>
+                    </div>
+                </div>
             </div>
         );
         const login = (
@@ -126,7 +149,7 @@ class AuthenticationContainer extends Component {
                             className={'btn btn-outline-success'}
                             style={{minHeight: '38px', minWidth: '215px'}}
                             type={'button'}>
-                        Sign in
+                        <FormattedMessage id='app.authentication.button.sign-in' defaultMessage='Sign in' />
                     </button>
                 </div>
             </div>
@@ -138,7 +161,7 @@ class AuthenticationContainer extends Component {
                             className={'btn btn-outline-danger'}
                             style={{minHeight: '38px', minWidth: '215px'}}
                             type={'button'}>
-                        Registration
+                        <FormattedMessage id='app.authentication.button.registration' defaultMessage='Registration' />
                     </button>
                 </div>
             </div>
@@ -162,44 +185,65 @@ class AuthenticationContainer extends Component {
                             <a style={cssTextHeader}> credentials.</a>
                         </div>
                         <div className='form-group'>
-                            <label>Email address</label>
-                            <input type={'email'}
-                                   name={'email'}
-                                   required={true}
-                                   className={'form-control'}
-                                   placeholder={'Your email'}
-                                   onChange={this.handleRegistrationChange}
-                                   value={this.state.form.registration.email}
-                            />
+                            <label>
+                                <FormattedMessage id='app.authentication.label.email-address' defaultMessage='Email address' />
+                            </label>
+                            <FormattedMessage id='app.authentication.input.placeholder.email-address' defaultMessage='Your email'>
+                                { (placeholder) =>
+                                    <input type={'email'}
+                                           name={'email'}
+                                           required={true}
+                                           className={'form-control'}
+                                           placeholder={placeholder}
+                                           onChange={this.handleRegistrationChange}
+                                           value={this.state.form.registration.email}
+
+                                    />
+                                }
+                            </FormattedMessage>
                         </div>
                         <div className='form-group'>
-                            <label>Secret password</label>
-                            <input type={'password'}
-                                   name={'password'}
-                                   required={true}
-                                   className={'form-control'}
-                                   placeholder={'Your password'}
-                                   onChange={this.handleRegistrationChange}
-                                   value={this.state.form.registration.password}
-                            />
+                            <label>
+                                <FormattedMessage id='app.authentication.label.secret-password' defaultMessage='Secret password' />
+                            </label>
+                            <FormattedMessage id='app.authentication.input.placeholder.password' defaultMessage='Your password'>
+                                { (placeholder) =>
+                                    <input type={'password'}
+                                           name={'password'}
+                                           required={true}
+                                           className={'form-control'}
+                                           placeholder={placeholder}
+                                           onChange={this.handleRegistrationChange}
+                                           value={this.state.form.registration.password}
+
+                                    />
+                                }
+                            </FormattedMessage>
                         </div>
                         <div className='form-group'>
-                            <label>Confirm password</label>
-                            <input type={'password'}
-                                   name={'passwordVerify'}
-                                   required={true}
-                                   className={'form-control'}
-                                   placeholder={'Your password'}
-                                   onChange={this.handleRegistrationChange}
-                                   value={this.state.form.registration.passwordVerify}
-                            />
+                            <label>
+                                <FormattedMessage id='app.authentication.label.confirm-password' defaultMessage='Confirm password' />
+                            </label>
+                            <FormattedMessage id='app.authentication.input.placeholder.password-verify' defaultMessage='Your password'>
+                                { (placeholder) =>
+                                    <input type={'password'}
+                                           name={'passwordVerify'}
+                                           required={true}
+                                           className={'form-control'}
+                                           placeholder={placeholder}
+                                           onChange={this.handleRegistrationChange}
+                                           value={this.state.form.registration.passwordVerify}
+
+                                    />
+                                }
+                            </FormattedMessage>
                         </div>
                         <div className='form-group text-right' style={{paddingTop: '30px'}}>
                             <button className={'btn btn-outline-primary'}
                                     style={{minHeight: '45px', minWidth: '230px'}}
                                     type={'submit'}
                             >
-                                Submit
+                                <FormattedMessage id='app.authentication.button.submit' defaultMessage='Submit' />
                             </button>
                         </div>
                     </form>
@@ -219,33 +263,47 @@ class AuthenticationContainer extends Component {
                             <a style={cssTextHeader}> credentials.</a>
                         </div>
                         <div className='form-group'>
-                            <label>Email address</label>
-                            <input type={'email'}
-                                   name={'email'}
-                                   required={true}
-                                   className={'form-control'}
-                                   placeholder={'Your email'}
-                                   onChange={this.handleLoginChange}
-                                   value={this.state.form.login.email}
-                            />
+                            <label>
+                                <FormattedMessage id='app.authentication.label.email-address' defaultMessage='Email address' />
+                            </label>
+                            <FormattedMessage id='app.authentication.input.placeholder.email-address' defaultMessage='Your email'>
+                                { (placeholder) =>
+                                    <input type={'email'}
+                                           name={'email'}
+                                           required={true}
+                                           className={'form-control'}
+                                           placeholder={placeholder}
+                                           onChange={this.handleLoginChange}
+                                           value={this.state.form.login.email}
+
+                                    />
+                                }
+                            </FormattedMessage>
                         </div>
                         <div className='form-group'>
-                            <label>Secret password</label>
-                            <input type={'password'}
-                                   name={'password'}
-                                   required={true}
-                                   className={'form-control'}
-                                   placeholder={'Your password'}
-                                   onChange={this.handleLoginChange}
-                                   value={this.state.form.login.password}
-                            />
+                            <label>
+                                <FormattedMessage id='app.authentication.label.secret-password' defaultMessage='Secret password' />
+                            </label>
+                            <FormattedMessage id='app.authentication.input.placeholder.password' defaultMessage='Your password'>
+                                { (placeholder) =>
+                                    <input type={'password'}
+                                           name={'password'}
+                                           required={true}
+                                           className={'form-control'}
+                                           placeholder={placeholder}
+                                           onChange={this.handleLoginChange}
+                                           value={this.state.form.login.password}
+
+                                    />
+                                }
+                            </FormattedMessage>
                         </div>
                         <div className='form-group text-right' style={{paddingTop: '30px'}}>
                             <button className={'btn btn-outline-primary'}
                                     style={{minHeight: '45px', minWidth: '230px'}}
                                     type={'submit'}
                             >
-                                Submit
+                                <FormattedMessage id='app.authentication.button.submit' defaultMessage='Submit' />
                             </button>
                         </div>
                     </form>
@@ -267,7 +325,9 @@ class AuthenticationContainer extends Component {
                     </div>
                 </Header>
                 {authentication}
-                {/*<RegistrationContainer/>*/}
+                <FooterContainer
+                    language={this.state.language}
+                />
             </Authentication>
         );
     }

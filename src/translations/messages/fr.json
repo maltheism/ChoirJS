@@ -1,4 +1,13 @@
 {
+  "app.authentication.button.registration": "Enregistrer",
+  "app.authentication.button.sign-in": "Se connecter",
+  "app.authentication.button.submit": "Soumettre",
+  "app.authentication.input.placeholder.email-address": "Votre email",
+  "app.authentication.input.placeholder.password": "Votre mot de passe",
+  "app.authentication.input.placeholder.password-verify": "Votre mot de passe",
+  "app.authentication.label.confirm-password": "Confirmez le mot de passe",
+  "app.authentication.label.email-address": "Adresse électronique",
+  "app.authentication.label.secret-password": "Mot de passe secret",
   "app.footer.about": "Qui sommes-nous",
   "app.footer.contact": "Contact",
   "app.footer.logout": "Déconnexion",

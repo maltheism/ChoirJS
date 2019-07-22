@@ -23,21 +23,17 @@ addLocaleData(frLocaleData);
 
 function App() {
 
-    const [cookies, setCookie] = useCookies(['user']); // login cookie.
+    const [cookies, setCookie] = useCookies(['user', 'language']); // login cookie.
     const [navigateIndex, setNavigateIndex] = useState(0); // navigation (main panel) index.
-    const [languageKey, setLanguageKey] = useState(defaultLanguage); // 'fr' for displaying français.
-
-    console.log('Cookie Data:');
-    console.log(cookies);
-
-    function onChange(user) {
-        setCookie('user', user, { path: '/' });
-    }
+    const [languageKey, setLanguageKey] = useState(cookies.language ?? defaultLanguage); // language key.
 
     const getSession = (obj) => {
         if (obj === undefined || obj === null) return false;
         return Object.entries(obj).length !== 0 && obj.constructor === Object;
     };
+
+    console.log('Cookie Data:');
+    console.log(cookies);
 
     const header = (
         <HeaderContainer
@@ -76,6 +72,7 @@ function App() {
                     languageKey: languageKey,
                     setLanguageKey: (key) => {
                         setLanguageKey(key);
+                        setCookie('language', key, { path: '/' });
                     }
                 }
                 }>
@@ -89,7 +86,25 @@ function App() {
         );
     } {
         return (
-            <AuthenticationContainer/>
+            <IntlProvider
+                locale={languageKey}
+                defaultLocale={defaultLanguage}
+                key={languageKey}
+                messages={translations[languageKey]}
+            >
+                <AppContext.Provider value={{
+                    languageKey: languageKey,
+                    setLanguageKey: (key) => {
+                        setLanguageKey(key);
+                        setCookie('language', key, { path: '/' });
+                    }
+                }
+                }>
+                    <AuthenticationContainer
+                        language={languageKey}
+                    />
+                </AppContext.Provider>
+            </IntlProvider>
         )
     }
 }
