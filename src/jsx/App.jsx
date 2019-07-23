@@ -74,8 +74,7 @@ function App() {
                         setLanguageKey(key);
                         setCookie('language', key, { path: '/' });
                     }
-                }
-                }>
+                }}>
                     {header}
                     {body}
                     {footer}
@@ -96,8 +95,7 @@ function App() {
                         setLanguageKey(key);
                         setCookie('language', key, { path: '/' });
                     }
-                }
-                }>
+                }}>
                     <AuthenticationContainer
                         language={languageKey}
                     />
