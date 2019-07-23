@@ -84,7 +84,8 @@ class HeaderContainer extends Component {
         );
 
         const dropdownMenu = this.state.session ? (
-            <div className={'col-sm mt-2 mb-2'} style={{display: 'flex', alignItems: 'center'}}>
+            <div className={'col-sm mt-2 mb-2'}
+                 style={{display: 'flex', alignItems: 'center'}}>
                 <Dropdown
                     list={[
                         'Stanford Medicine',
@@ -100,7 +101,8 @@ class HeaderContainer extends Component {
         ) : null;
 
         const search = this.state.session ? (
-            <div className={'col-xl-3 col-lg-4 col-sm-6 col-xs-6'} style={{display: 'flex', alignItems: 'center'}}>
+            <div className={'col-xl-3 col-lg-4 col-sm-6 col-xs-6'}
+                 style={{display: 'flex', alignItems: 'center'}}>
                 <FormattedMessage
                     id='app.header.input.placeholder.search'
                     defaultMessage='email, mm, or name' >
@@ -114,14 +116,19 @@ class HeaderContainer extends Component {
                         />
                     }
                 </FormattedMessage>
-                <button className={'btn btn-light'} type={'button'}>Go</button>
+                <button className={'btn btn-light'} type={'button'}>
+                    Go
+                </button>
             </div>
         ) : null;
 
         const loggedInMessage = this.state.session ? (
             <div style={{right: 40, position: 'absolute', fontSize: '10pt'}}>
                 <i>
-                    <FormattedMessage id='app.header.login-message' defaultMessage='Logged in as:' />
+                    <FormattedMessage
+                        id='app.header.login-message'
+                        defaultMessage='Logged in as:'
+                    />
                 </i> <b>{this.state.session.user.email}</b>
             </div>
         ) : null;

@@ -5,10 +5,10 @@ import {useCookies} from 'react-cookie';
 import {AppContext} from './contexts/AppContext';
 
 // Main Containers
+import AuthenticationContainer from './containers/AuthenticationContainer';
 import HeaderContainer from './containers/HeaderContainer';
 import BodyContainer from './containers/BodyContainer';
 import FooterContainer from './containers/FooterContainer';
-import AuthenticationContainer from './containers/AuthenticationContainer';
 
 // Multiple Language Support
 import {addLocaleData, IntlProvider} from 'react-intl';
