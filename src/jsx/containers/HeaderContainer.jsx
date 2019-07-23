@@ -117,7 +117,10 @@ class HeaderContainer extends Component {
                     }
                 </FormattedMessage>
                 <button className={'btn btn-light'} type={'button'}>
-                    Go
+                    <FormattedMessage
+                        id='app.header.search-button'
+                        defaultMessage='Go'
+                    />
                 </button>
             </div>
         ) : null;
