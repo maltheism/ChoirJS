@@ -38,6 +38,7 @@ async function setupDatabase() {
     await Promise.all([createSession, alterSessionDrop, alterSessionAdd, createPublicUsers]);
 }
 setupDatabase().then(() => {
+    // setupDatabase commands finished.
 });
 
 // todo make universal db functions (here) if necessary.
