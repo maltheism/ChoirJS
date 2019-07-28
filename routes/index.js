@@ -7,17 +7,17 @@ const router = express.Router();
 import * as auth from '../libraries/user/userMiddleware';
 
 /**
- * POST request so user can login.
+ * POST request - User can login.
  */
 router.post('/login', auth.login);
 
 /**
- * POST request so user can register.
+ * POST request - User can register.
  */
 router.post('/register', auth.register);
 
 /**
- * POST request so user can logout.
+ * POST request - User can logout.
  */
 router.post('/logout', auth.logout);
 
