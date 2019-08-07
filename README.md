@@ -31,3 +31,5 @@ Built with Node.js, Webpack.js, React.js and read the package.json for the depen
 * `npm install -g nodemon`
 
 * `npm run translate` - Builds multiple language support (json) files.
+
+* View the `config.js` for customizing setup process.
