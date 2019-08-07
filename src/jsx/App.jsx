@@ -11,15 +11,9 @@ import BodyContainer from './containers/BodyContainer';
 import FooterContainer from './containers/FooterContainer';
 
 // Multiple Language Support
-import {addLocaleData, IntlProvider} from 'react-intl';
-import enLocaleData from 'react-intl/locale-data/en';
-import frLocaleData from 'react-intl/locale-data/fr';
-import translations from '../translations/locales';
 const defaultLanguage = 'en';
-
-// English and French (add more languages here)
-addLocaleData(enLocaleData);
-addLocaleData(frLocaleData);
+import {IntlProvider} from 'react-intl';
+import translations from '../translations/locales';
 
 function App() {
 

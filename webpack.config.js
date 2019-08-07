@@ -74,6 +74,10 @@ const client = {
     module: {
         rules: [
             {
+                type: 'javascript/auto',
+                test: /\.mjs$/,
+            },
+            {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 resolve: {
