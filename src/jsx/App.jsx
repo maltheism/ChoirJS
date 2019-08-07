@@ -17,7 +17,7 @@ import translations from '../translations/locales';
 
 function App() {
 
-    const [cookies, setCookie] = useCookies(['user', 'language']); // login cookie.
+    const [cookies, setCookie] = useCookies(['user', 'language']); // [login, language] cookie.
     const [navigateIndex, setNavigateIndex] = useState(0); // navigation (main panel) index.
     const [languageKey, setLanguageKey] = useState(cookies.language ?? defaultLanguage); // language key.
 
