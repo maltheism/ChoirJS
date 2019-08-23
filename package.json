@@ -19,7 +19,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
-    "connect-pg-simple": "^6.0.0",
+    "connect-pg-simple": "^6.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~4.1.1",
     "dexie": "^2.0.4",
@@ -31,17 +31,17 @@
     "ip": "^1.1.5",
     "jquery": "^3.4.1",
     "morgan": "~1.9.1",
-    "pg-promise": "^9.0.0",
+    "pg-promise": "^9.1.0",
     "popper.js": "^1.15.0",
     "react": "^16.9.0",
     "react-cookie": "^4.0.1",
     "react-dom": "^16.9.0",
-    "react-intl": "^3.1.8",
+    "react-intl": "^3.1.11",
     "react-intl.macro": "^0.3.7",
     "react-scripts": "^3.1.1",
     "serve-favicon": "^2.5.0",
     "styled-components": "^4.3.2",
-    "uuid": "latest"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -53,7 +53,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-react-intl": "^4.1.12",
+    "babel-plugin-react-intl": "^4.1.14",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.1.0",
     "html-loader": "^0.5.5",
@@ -67,7 +67,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-node-externals": "^1.7.2"
   },
   "browserslist": {
