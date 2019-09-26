@@ -36,7 +36,7 @@
     "react": "^16.9.0",
     "react-cookie": "^4.0.1",
     "react-dom": "^16.9.0",
-    "react-intl": "^3.3.0",
+    "react-intl": "^3.3.1",
     "react-intl.macro": "^0.3.7",
     "react-scripts": "^3.1.2",
     "serve-favicon": "^2.5.0",
